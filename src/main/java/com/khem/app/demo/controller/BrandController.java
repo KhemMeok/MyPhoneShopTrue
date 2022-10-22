@@ -1,7 +1,7 @@
 package com.khem.app.demo.controller;
 
 import java.util.List;
- 
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -56,8 +56,8 @@ public class BrandController {
         List<Brand> brands = brandSevice.getBrand();
         List<BrandDTO> collect = brands.stream()
                 .map(b -> EntiryMapper.toBrandDTO(b))
-                .toList();
-            //    .collect(Collectors.toList());
+               // .toList();
+              .collect(Collectors.toList());
         return ResponseEntity.ok(collect);
 
     }
